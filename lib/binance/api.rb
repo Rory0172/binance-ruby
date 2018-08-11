@@ -44,7 +44,7 @@ module Binance
       end
 
       def ticker!(symbol: nil, type: nil)
-        ticker_type = type&.to_sym
+        ticker_type = type.to_sym
         error_message = "type must be one of: #{ticker_types.join(', ')}. #{type} was provided."
         raise Error.new(message: error_message) unless ticker_types.include? ticker_type
         path = ticker_path(type: ticker_type)
